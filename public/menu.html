@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Меню — Кафе «Утренний Свет»</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <a class="logo" href="index.html" aria-hidden="true">☼</a>
+        <div>
+          <h1>Кафе «Утренний Свет»</h1>
+          <div class="muted">Меню и цены</div>
+        </div>
+      </div>
+
+      <nav aria-label="Главное меню">
+        <a class="nav-link" href="index.html">Главная</a>
+        <a class="nav-link-selected" href="menu.html">Меню</a>
+        <a class="nav-link" href="about.html">О нас</a>
+        <a class="nav-link" href="contact.html">Контакты</a>
+      </nav>
+
+      <div class="actions">
+        <button class="btn" id="themeToggle2">Тема</button>
+        <button class="btn primary" id="orderNow2">Заказать</button>
+      </div>
+    </header>
+
+    <main>
+      <section aria-labelledby="menu-title">
+        <h3 id="menu-title" style="margin-top:8px">Меню</h3>
+
+        <div class="controls" role="tablist" aria-label="Категории">
+          <button class="chip active" data-filter="all" role="tab">Все</button>
+          <button class="chip" data-filter="coffee" role="tab">Кофе</button>
+          <button class="chip" data-filter="bakery" role="tab">Выпечка</button>
+          <button class="chip" data-filter="cold" role="tab">Холодные напитки</button>
+        </div>
+
+        <div class="menu" id="menuList" style="margin-top:12px">
+          <!-- items рендерятся скриптом -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <button id="cartBtn2" class="cart-float" aria-label="Корзина">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M6 6h15l-1.5 9h-12z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <span>Корзина</span>
+    <span class="cart-count" id="cartCount2">0</span>
+  </button>
+
+  <!-- Универсальный модал/корзина -->
+  <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal" role="document" aria-labelledby="modalTitle">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h4 id="modalTitle">Корзина</h4>
+        <button class="btn" id="closeModal" aria-label="Закрыть">╳</button>
+      </div>
+      <div class="list" id="cartList">
+        <div class="muted">Корзина пуста</div>
+      </div>
+
+      <form id="checkoutForm" style="margin-top:12px">
+        <div style="display:flex;gap:8px;margin-bottom:8px">
+          <input name="name" placeholder="Имя" required />
+          <input name="phone" placeholder="Телефон" required />
+        </div>
+        <div style="margin-bottom:8px">
+          <input name="address" placeholder="Адрес доставки" required />
+        </div>
+        <div style="margin-bottom:8px">
+          <textarea name="note" placeholder="Заметка (необязательно)"></textarea>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="font-weight:700">Итого: <span id="cartTotal">0 ₽</span></div>
+          <div style="display:flex;gap:8px">
+            <button type="button" class="btn" id="clearCart">Очистить</button>
+            <button type="submit" class="btn primary" id="checkout">Оформить</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+
+</html>
